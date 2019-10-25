@@ -1,0 +1,19 @@
+.table-header, .table-body {
+    display: flex !important;
+    flex-flow: row;
+  }
+  .table-header{
+    border-bottom-width: 1px !important;
+    color: #243858;
+    font-weight: 600;
+    margin-bottom: 10px
+  }
+  
+    
+  .tb-hover {
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 20px 26px -15px rgba(0, 0, 0, 0.15), 0px 0px 20px -1px rgba(0, 0, 0, 0.05)
+  }
+}

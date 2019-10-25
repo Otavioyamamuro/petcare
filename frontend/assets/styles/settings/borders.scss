@@ -1,0 +1,14 @@
+// ---------------------------------------------------------
+// @Borders
+// ---------------------------------------------------------
+
+$border-width: 1px;
+$border-color: rgba($default-text-color, 0.0625);
+
+
+@mixin border-radius($radius) {
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+  }

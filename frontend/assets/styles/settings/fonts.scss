@@ -1,0 +1,15 @@
+$font-primary:  local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+/*@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}*/
+// $font-primary:  "San Francisco";
+$font-secondary: $font-primary;
+$font-size-base:              0.875rem;
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  // margin-bottom: $headings-margin-bottom;
+  font-family: $font-primary
+}

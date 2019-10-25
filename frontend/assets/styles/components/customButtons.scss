@@ -1,0 +1,78 @@
+.mini-button{
+    height: 30px;
+    width: 30px;
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .material-icons{
+      font-size: 17px;
+    }
+  
+  }
+  .x-mini-button{
+    height: 20px;
+    width: 20px;
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    .material-icons{
+      font-size: 17px;
+    }
+  }
+  
+  .x-mini-radius-button{
+    height: 16px;
+    width: 16px;
+    border-radius: 25%;
+    text-align: center;
+    padding: 0px;
+    border-radius: 50%;
+    font-size: 65%;
+    line-height: 16px;
+  }
+  .btn-default {
+    @include button-variant($client-default, $client-default);
+  }
+  
+  
+  $muted:    #f2f3f5 !default;
+  $clear:    transparent !default;
+  
+  $colors: () !default;
+  $colors: map-merge((
+    "muted":       $muted,
+    "clear":       $clear,
+  ), $colors);
+  
+  $muted:       $muted !default;
+  $clear:        $muted !default;
+  
+  
+  $theme-colors: () !default;
+  $theme-colors: map-merge((
+    "muted":    $muted,
+    "clear":    $clear,
+  ), $theme-colors);
+  
+  @each $color, $value in $theme-colors {
+    .btn-#{$color} {
+      @include button-variant($value, $value);
+    }
+  }
+  
+  @each $color, $value in $theme-colors {
+    .btn-outline-#{$color} {
+      @include button-outline-variant($value);
+    }
+  }
+  .btn-clear:focus, .btn-clear.focus{
+    box-shadow: none !important;
+    outline:0;
+  }
+  .btn-clear:not(:disabled):not(.disabled):active:focus, .btn-clear:not(:disabled):not(.disabled).active:focus, .show > .btn-clear.dropdown-toggle:focus {
+    box-shadow: none;
+    outline: none;
+}

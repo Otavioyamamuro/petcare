@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: mongo
+    ports: 
+       -  27017:27017
+  petcare-backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: petcare-backend-compose
+    ports:
+      -  8080:8080
+    links:
+      -  "db:mongo"
+  petcare-frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: petcare-frontend-compose
+    ports:
+      -  8085:8085
+    links:
+      - "petcare-backend:petcare-backend"

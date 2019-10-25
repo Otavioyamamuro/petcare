@@ -1,0 +1,126 @@
+.col3-app {
+    display: flex;
+    height: 100%;
+    &__side-nav {
+        position: fixed;
+        display: flex;
+        z-index: 1; // border-right: 1px solid $border-color;
+        float: left;
+        width: 250px;
+        height: calc(100% - 65px);
+        transition: all 0.3s ease-in-out;
+        @include to($breakpoint-md) {
+            z-index: 1;
+            left: -250px;
+        }
+        @include to($breakpoint-sm) {
+            z-index: 1;
+            width: 100%;
+            left: -100%;
+        }
+    }
+    &__side-nav-right {
+        position: fixed;
+        display: flex;
+        z-index: 1; // border-right: 1px solid $border-color;
+        right: 0;
+        width: 250px;
+        height: calc(100% - 65px);
+        transition: all 0.3s ease-in-out;
+        @include to($breakpoint-md) {
+            z-index: 1;
+            //right: -250px;
+        }
+        @include to($breakpoint-sm) {
+            z-index: 1;
+            width: 100%;
+            right: -100%;
+        }
+    }
+    &__wrapper {
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        height: 100%;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        @include to($breakpoint-md) {
+            // position: absolute;
+            left: 0;
+            width: calc(100% - 250px);
+            overflow-x: hidden;
+        }
+        @include to($breakpoint-sm) {
+            // position: absolute;
+            left: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        @include from($breakpoint-md) {
+            margin-left: 250px;
+            margin-right: 250px;
+        }
+    }
+    &__side-details {
+        position: fixed;
+        display: flex;
+        z-index: map-get($z-index, 'sidebar');
+        right: -320px;
+        width: 320px;
+        height: calc(100% - 65px);
+        transition: all 0.3s ease-in-out;
+        @include to($breakpoint-sm) {
+            z-index: map-get($z-index, 'sidebar');
+            width: 100%;
+            right: -100%;
+        }
+    }
+    &.details-active {
+        .col3-app__side-details {
+            right: 0;
+        }
+    }
+    &.side-right-active {
+        .col3-app__side-nav-right {
+            @include to($breakpoint-md) {
+                right: 0;
+                z-index: 5;
+            }
+        }
+    }
+    &.side-active {
+        .col3-app__side-nav {
+            @include to($breakpoint-md) {
+                left: 0;
+                z-index: 5;
+            }
+        }
+        .col3-app__wrapper {
+            @include to($breakpoint-md) {
+                left: 250px;
+            }
+        }
+    }
+}
+
+.col3-list {
+    position: relative;
+    padding: 0;
+    width: 100%;
+    overflow-y: hidden; // background-color: $default-white;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.mobile-scroll {
+    @include to($breakpoint-sm) {
+        overflow: auto;
+        height: calc(100% -  #{$header-height});
+    }
+    &__inner {
+        @include to($breakpoint-sm) {
+            display: block !important
+        }
+    }
+}

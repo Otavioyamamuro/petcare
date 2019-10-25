@@ -1,0 +1,33 @@
+.custom-toast {
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    max-width: 280px;
+    border-radius: 7px;
+    padding: 10px;
+    position: relative;
+    &__icon {
+        font-size: 2rem !important;
+        opacity: 0.4;
+    }
+    &__text {
+        display: block;
+        padding: 5px 12px;
+    }
+}
+.custom-toast-text-block{
+    &__title {
+        font-size: 1.2rem;
+        font-weight: bold
+    }
+    &__message {
+        font-size: 0.8rem;
+        font-weight: 400
+    }
+}
+.custom-toast-text-close{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+}
