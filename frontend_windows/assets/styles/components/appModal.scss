@@ -1,0 +1,110 @@
+
+
+.sidebar-show, .sidebar-hidden {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .sidebar-show {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+    transform: translateX(0%);
+  }
+  .show-overlay, .hidden-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.2s linear;
+  }
+  .show-overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+  .show-sidebar-overlay, .hidden-sidebar-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.2s linear;
+  }
+  .show-sidebar-overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+  .modal-open-blured{
+    filter: blur(4px);
+    transition: transform .5s; /* Animation */
+    transform: scale(0.97)
+  }
+  .modal-close-blured{
+    filter: blur(0px);
+    transition: transform .5s; /* Animation */
+    transform: scale(1)
+  }
+  
+  #overlay {
+    position: fixed;
+    top: 0px;
+    left:  0px;
+    z-index:  map-get($z-index , 'modal-overlay' );
+    background:  rgba(255,255,255,0.85);
+    width:  100%;
+    height: 100%;
+  }
+  #overlay-sidebar {
+    position: absolute;
+    top: 0px;
+    left:  0px;
+    z-index:  map-get($z-index , 'sidebar-overlay' );
+    background:  rgba(255,255,255,0.85);
+    width:  100%;
+    height: 100%;
+  }
+  #modal-container{
+    position: fixed;
+    top: 0;
+      width: 100%;
+      height: 100%;
+      justify-content:  center;
+    z-index:  map-get($z-index , 'modal-container' );
+  }
+  #sidebar-container{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    justify-content:  center;
+    border: 2px solid;
+    z-index:  map-get($z-index , 'sidebar' );
+    right: 0;
+    @include to($breakpoint-sm) {
+        width: 100%;
+    }
+  }
+  .confirm-container{
+    background: rgba(255,255,255,1);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    &__header{
+      text-align: center;
+      font-weight: 400;
+      // border-bottom: 1px solid map-get($colors, 'border-color');
+  
+    }
+    &__content{
+      overflow: auto;
+    }
+    &__footer{
+      display: flex;
+      text-align: center;
+      button{
+        width: 100%;
+        border-radius: 0;
+      }
+    }
+  }
+  

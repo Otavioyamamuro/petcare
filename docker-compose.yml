@@ -16,7 +16,7 @@ services:
       -  "db:mongo"
   petcare-frontend:
     build:
-      context: frontend
+      context: frontend_windows
       dockerfile: Dockerfile
     image: petcare-frontend-compose
     ports:

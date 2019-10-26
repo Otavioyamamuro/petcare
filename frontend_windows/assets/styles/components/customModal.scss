@@ -1,0 +1,47 @@
+.custom-modal-overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: map-get($z-index , 'modal-overlay');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.custom-modal {
+    z-index: map-get($z-index , 'modal-content');
+    &__title{
+        padding: 15px 10px;
+    }
+    &__content{
+        padding: 0 10px;
+        overflow: auto
+    }
+    &__footer{
+        padding: 15px 10px;
+    }
+}
+
+
+.show, .hidden {
+    display: flex;
+    position: absolute;
+    transform: translateY(100%);
+    transition: transform 200ms linear;
+  }
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  .show-custom-modal-overlay, .hidden-custom-modal-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 200ms, opacity 300ms linear;
+  }
+  .show-custom-modal-overlay {
+    visibility: visible;
+    opacity: 1;
+  }

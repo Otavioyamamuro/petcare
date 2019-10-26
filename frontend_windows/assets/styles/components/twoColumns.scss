@@ -1,0 +1,94 @@
+.col2-app {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    &__side-nav {
+        position: fixed;
+        display: flex;
+        z-index: 1; // border-right: 1px solid $border-color;
+        float: left;
+        width: 250px;
+        height:100%;
+        transition: all 0.3s ease-in-out;
+        @include to($breakpoint-md) {
+            z-index: 1;
+            left: -250px;
+        }
+        @include to($breakpoint-sm) {
+            z-index: 1;
+            width: 100%;
+            left: -100%;
+        }
+    }
+    &__wrapper {
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        height: 100%;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        @include to($breakpoint-md) {
+            // position: absolute;
+            left: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        @include from($breakpoint-md) {
+            margin-left: 250px;
+        }
+    }
+    &__side-details {
+        position: fixed;
+        display: flex;
+        z-index: map-get($z-index, 'sidebar');
+        right: -320px;
+        width: 320px;
+        height: calc(100% - 65px);
+        transition: all 0.3s ease-in-out;
+        @include to($breakpoint-sm) {
+            z-index: map-get($z-index, 'sidebar');
+            width: 100%;
+            right: -100%;
+        }
+    }
+    &.details-active {
+        .col2-app__side-details {
+            right: 0;
+        }
+    }
+    &.side-active {
+        .col2-app__side-nav {
+            @include to($breakpoint-md) {
+                left: 0;
+                z-index: 5;
+            }
+        }
+        .col2-app__wrapper {
+            @include to($breakpoint-md) {
+                left: 250px;
+            }
+        }
+    }
+}
+
+.col2-list {
+    position: relative;
+    padding: 0;
+    width: 100%;
+    overflow-y: hidden; // background-color: $default-white;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.mobile-scroll {
+    height: calc(100% -  #{$header-height});
+    &.no-scroll{
+        overflow: hidden;
+    }
+    &__inner {
+        @include to($breakpoint-sm) {
+            display: block !important
+        }
+    }
+}

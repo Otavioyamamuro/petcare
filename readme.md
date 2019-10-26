@@ -15,6 +15,9 @@ docker -t build backend .
 docker run  -p 8080:8080 --name backend --link mongo:mongo cadastro
 
 
+#url front
 
+http://127.0.0.1:8085/#/
+http://localhost:8080/swagger-ui.html
 
 

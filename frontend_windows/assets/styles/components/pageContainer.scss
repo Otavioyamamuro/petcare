@@ -1,0 +1,161 @@
+// ---------------------------------------------------------
+// @TOC
+// ---------------------------------------------------------
+// + @Page Container
+// + @Main Content
+// + @Full Container
+// + @Collapsed State
+// ---------------------------------------------------------
+// @Page Container
+// ---------------------------------------------------------
+.page-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding-left: $offscreen-size;
+  transition: all 0.2s ease;
+  background: $default-white;
+  @include between($breakpoint-md, $breakpoint-xl) {
+    padding-left: $collapsed-size;
+  }
+  @include to($breakpoint-md) {
+    padding-left: 0;
+    height: calc(100% - 0px);
+    display: flex;
+  }
+  /*&:before{
+      width: 100%;
+      height: 100vh;
+      content: " ";
+      background: url('assets/static/images/bg.jpg');
+      position: absolute;
+      filter: blur(5px);
+      transform: scale(1.1);
+      background-position: top center;
+    }*/
+} // ---------------------------------------------------------
+// @Main Content
+// ---------------------------------------------------------
+.main-content {
+  padding: 85px 20px 20px;
+  min-height: calc(100vh - 0px);
+  @include to($breakpoint-md) {
+    padding: 85px 5px 5px;
+  }
+}
+
+.remain-height {
+  height: calc(100vh - 126px);
+} // ---------------------------------------------------------
+// @Full Container
+// ---------------------------------------------------------
+.full-container {
+  /*left: $offscreen-size;
+    min-height: calc(100vh - #{$header-height});
+    position: relative;
+    display: flex;
+    right: 0;
+    top: $header-height;*/
+  transition: all 0.2s ease;
+  display: block;
+  height: auto;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: $header-height; // padding-left: 12px;
+  // padding-right: 12px;
+  // background: $grey-100;
+  @include between($breakpoint-md, $breakpoint-xl) {
+    left: 0; // padding-left: $collapsed-size;
+  }
+  @include to($breakpoint-md) {
+    left: 0;
+  }
+  @include to($breakpoint-sm) {
+    // padding-top: $header-height;
+    height: auto;
+  }
+} // ---------------------------------------------------------
+// @Collapsed State
+// ---------------------------------------------------------
+.is-collapsed {
+  .page-container {
+    padding-left: $collapsed-size;
+    @include to($breakpoint-md) {
+      padding-left: 0;
+    }
+    @include between($breakpoint-md, $breakpoint-xl) {
+      padding-left: $offscreen-size;
+    }
+  }
+  /*.full-container {
+    //left: $collapsed-size;
+    @include to($breakpoint-md) {
+      left: 0;
+    }
+    @include between($breakpoint-md, $breakpoint-xl) {
+      // left: $offscreen-size;
+      padding-left: 0;
+    }
+  }*/
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  &__text {
+    width: 100%
+  }
+  &__action {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.inner-content {
+  width: 100%;
+  height: calc(100% -  #{$header-height});
+  display: flex;
+  flex-direction: column;
+  background: rgba($white, 1);
+  @include to($breakpoint-sm) {
+    height: 100%;
+  }
+}
+
+.content-header {
+  height: 45px;
+  min-height: 75px;
+  padding: 10px;
+  display: flex;
+  // border-bottom: 1px solid $border-color;
+  align-items: center;
+  &__left {
+    height: 100%;
+    display: flex;
+  }
+  &__title{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+  }
+  @include to($breakpoint-sm) {
+    // border-bottom: 1px solid transparent;
+    // border-radius: $tb-radius $tb-radius 0 0;
+  }
+}
+
+.item-center {
+  display: flex;
+  align-items: center
+}
+
+.page-content {
+  background: $default-white;
+  padding-bottom: 30px;
+}
+
+.table-content {
+  padding: 0 0;
+}
